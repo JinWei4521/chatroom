@@ -155,7 +155,8 @@ void *handle_client(void *arg)
                 UINT32 height;
                 if (sscanf(buffer, "/i %s %d %d %d", filename, &image_size, &width, &height) == 4)
                 {
-                    printf("Received image transfer request from %s: File name = %s, size = %d(%d * %d)\n", nickname, filename, image_size, width, height);
+                    printf("Received image transfer request from %s: File name = %s, size = %d(%d * %d)\n",
+                                    nickname, filename, image_size, width, height);
                     broadcast_image_header(filename, image_size, client_socket, nickname, width, height);
 
                     UINT8 *image_data = (UINT8 *)malloc(image_size);
