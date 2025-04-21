@@ -262,17 +262,17 @@ void broadcast_image_header(const UINT8 *filename, INT32 size, INT32 sender_sock
     pthread_mutex_unlock(&clients_mutex);
 }
 
-void broadcast_image_data(const UINT8 *data, size_t data_len, INT32 sender_socket)
+void broadcast_image_data(const UINT8 *data, UINT32 data_len, INT32 sender_socket)
 {
     pthread_mutex_lock(&clients_mutex);
     for (int i = 0; i < client_count; i++)
     {
         if (clients[i].socket != sender_socket)
         {
-            ssize_t bytes_sent = 0;
+            INT32 bytes_sent = 0;
             while (bytes_sent < data_len)
             {
-                ssize_t sent = send(clients[i].socket, data + bytes_sent, data_len - bytes_sent, 0);
+                INT32 sent = send(clients[i].socket, data + bytes_sent, data_len - bytes_sent, 0);
                 if (sent == -1)
                 {
                     perror("Image error!");
