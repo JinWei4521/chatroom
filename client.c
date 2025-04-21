@@ -16,8 +16,9 @@
 #include <sys/socket.h>
 #include <pthread.h>
 
-typedef unsigned char   UINT8;  // 1 byte 
-typedef int             INT32;  // 4 byte 
+typedef unsigned char   UINT8;   // 1 byte 
+typedef unsigned int    UINT32;  // 4 byte 
+typedef int             INT32;   // 4 byte 
 
 #define SERVER "127.0.0.1"
 #define PORT 3532
