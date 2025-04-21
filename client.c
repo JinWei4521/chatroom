@@ -223,14 +223,6 @@ int read_jpeg_dimensions(const UINT8 *filename, INT32 *width, INT32 *height)
         {
             continue;
         }
-
-        while (marker[1] == 0xFF)
-        {
-            if (fread(&marker[1], 1, 1, fp) != 1)
-            {
-                break;
-            }
-        }
         
         if ((marker[1] >= 0xC0 && marker[1] <= 0xCF) &&
             marker[1] != 0xC4 && marker[1] != 0xC8 && marker[1] != 0xCC)
