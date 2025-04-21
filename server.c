@@ -114,7 +114,7 @@ void *handle_client(void *arg)
     INT32 client_socket = *(INT32 *)arg;
     UINT8 buffer[BUFFER_SIZE];
     UINT8 nickname[NAME_SIZE];
-    ssize_t bytes_received;
+    INT32 bytes_received;
 
     
     if ((bytes_received = recv(client_socket, nickname, NAME_SIZE - 1, 0)) > 0)
