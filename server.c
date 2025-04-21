@@ -21,7 +21,7 @@ typedef unsigned char   UINT8;      // 1 byte
 typedef unsigned int    UINT32;     // 4 byte 
 typedef int             INT32;      // 4 byte 
 
-#define MAX_CLIENTS 2
+#define MAX_CLIENTS 5
 #define BUFFER_SIZE 1024
 #define NAME_SIZE 10
 #define PORT 3532
