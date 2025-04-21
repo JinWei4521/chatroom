@@ -113,7 +113,7 @@ void *receive_message(void *arg)
 {
     INT32 client_socket = *(INT32*)arg;
     UINT8 buffer[BUFFER_SIZE];
-    ssize_t bytes_received;
+    INT32 bytes_received;
 
     while (1)
     {
@@ -138,8 +138,8 @@ void *receive_message(void *arg)
                         perror("Malloc error!");
                         continue;
                     }
-                    ssize_t total_received = 0;
-                    ssize_t received;
+                    INT32 total_received = 0;
+                    INT32 received;
                     while (total_received < image_size)
                     {
                         received = recv(client_socket, image_data + total_received,
@@ -302,7 +302,7 @@ void send_image(INT32 socket, const UINT8 *filename)
     Sleep(10);
 
     UINT8 buffer[BUFFER_SIZE];
-    size_t bytes_read;
+    UINT32 bytes_read;
     while ((bytes_read = fread(buffer, 1, BUFFER_SIZE, fp)) > 0)
     {
         if (send(socket, buffer, bytes_read, 0) == -1)
