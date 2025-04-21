@@ -212,7 +212,8 @@ int read_jpeg_dimensions(const UINT8 *filename, INT32 *width, INT32 *height)
         return -1;
     }
 
-    while (!feof(fp)) {        
+    while (!feof(fp))
+    {        
         if (fread(marker, 1, 2, fp) != 2)
         {
             break;
